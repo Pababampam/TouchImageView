@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'android-maven'
 
-version '3.1'
+version '3.2'
 
 repositories {
    jcenter()
@@ -18,8 +18,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 31
-        versionName "3.1"
+        versionCode 32
+        versionName "3.2"
     }
 
 }
