@@ -55,6 +55,7 @@ public class TouchImageView extends ImageView {
     // when the image is stretched to fit view.
     //
     private float normalizedScale;
+    private float doubleTapScale;
     
     //
     // Matrix applied to image. MSCALE_X and MSCALE_Y should always be equal.
@@ -787,7 +788,7 @@ public class TouchImageView extends ImageView {
             	consumed = doubleTapListener.onDoubleTap(e);
             }
         	if (state == State.NONE) {
-	        	float targetZoom = (normalizedScale == minScale) ? maxScale : minScale;
+	        	float targetZoom = (normalizedScale == minScale) ? doubleTapScale : minScale;
 	        	DoubleTapZoom doubleTap = new DoubleTapZoom(targetZoom, e.getX(), e.getY(), false);
 	        	compatPostOnAnimation(doubleTap);
 	        	consumed = true;
@@ -1272,5 +1273,8 @@ public class TouchImageView extends ImageView {
     	float[] n = new float[9];
     	matrix.getValues(n);
     	Log.d(DEBUG, "Scale: " + n[Matrix.MSCALE_X] + " TransX: " + n[Matrix.MTRANS_X] + " TransY: " + n[Matrix.MTRANS_Y]);
+    }
+    public void setScaleToDoubleTap(float displayRatio, float imageRatio) {
+        doubleTapScale = displayRatio / imageRatio;
     }
 }
