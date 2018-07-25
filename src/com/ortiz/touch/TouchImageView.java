@@ -961,7 +961,7 @@ public class TouchImageView extends ImageView {
     private class DoubleTapZoom implements Runnable {
     	
     	private long startTime;
-    	private static final float ZOOM_TIME = 500;
+    	private static final float ZOOM_TIME = 200;
     	private float startZoom, targetZoom;
     	private float bitmapX, bitmapY;
     	private boolean stretchImageToSuper;
